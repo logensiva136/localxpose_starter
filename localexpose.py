@@ -25,6 +25,3 @@ if not Path(BASE_DIR, EXE_).exists():
     get_files()
 
 expose()
-
-# for i in os.environ:
-#     print(i)
