@@ -3,5 +3,5 @@ test:
   type: tcp
   name: test_name
   region: ap # for asia pacific
-  to: localhost:9000
+  to: localhost:3389
   # reserved_domain: any.domain.com
