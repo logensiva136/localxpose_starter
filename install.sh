@@ -18,6 +18,7 @@ fi
 cp lxp.service /lib/systemd/system/
 mkdir -p /opt/lxp
 cp config.yml /opt/lxp
+cp lxp.sh /opt/lxp
 
 systemctl enable lxp.service
 systemctl start lxp.service

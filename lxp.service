@@ -3,7 +3,7 @@ Description=localxpose
 After=network.target
 
 [Service]
-ExecStart=/opt/lxp/lxp
+ExecStart=/opt/lxp/lxp.sh
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 IgnoreSIGPIPE=true
