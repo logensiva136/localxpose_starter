@@ -1,7 +1,7 @@
-access_token: test
-test:
+access_token: token_
+name_:
   type: tcp
-  name: test_name
+  name: name_
   region: ap # for asia pacific
   to: localhost:3389
   # reserved_domain: any.domain.com

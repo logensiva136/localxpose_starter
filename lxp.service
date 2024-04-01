@@ -3,8 +3,14 @@ Description=localxpose
 After=network.target
 
 [Service]
-ExecStart=/opt/lxp/lxp.sh
-ExecReload=/bin/kill -HUP $(/bin/pidof /opt/lxp/loclx)
+ExecStart=/usr/lib/loclx tunnel config -f /opt/loclxp/config.yml
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=2
+IgnoreSIGPIPE=true
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
