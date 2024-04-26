@@ -45,8 +45,8 @@ def edit_config(name: str, token: str):
 
 
 def install_service():
-    print('nssm.exe install lxp ' + str(Path(DEFAULT_PATH.resolve() / 'loclx.exe')))
-    print('nssm.exe set lxp AppParameters tunnel config -f ' +
+    os.system('nssm.exe install lxp ' + str(Path(DEFAULT_PATH.resolve() / 'loclx.exe')))
+    os.system('nssm.exe set lxp AppParameters tunnel config -f ' +
               str(Path(DEFAULT_PATH.resolve() / 'config.yml')))
     os.system('nssm.exe set lxp DisplayName Localxpose tunnel service')
     os.system('nssm.exe set lxp Description  Localxpose tunnel service')
