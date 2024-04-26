@@ -1,0 +1,16 @@
+[Unit]
+Description=localxpose
+After=network.target
+
+[Service]
+ExecStart=/usr/lib/loclx tunnel config -f /opt/loclxp/config.yml
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=2
+IgnoreSIGPIPE=true
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
