@@ -4,7 +4,6 @@ import os
 import zipfile
 from pathlib import Path
 from urllib import request
-# wcvQE5T5nC0fqky3fiQylWEmaJTc1HYC1iigCy4L
 
 BASE_DIR = Path(__file__).resolve().parent
 DOWNLOAD_URL = "https://loclx-client.s3.amazonaws.com/loclx-windows-amd64.zip"
@@ -46,9 +45,9 @@ def edit_config(name: str, token: str):
 
 
 def install_service():
-    os.system('nssm.exe install lxp ' + str(DEFAULT_PATH) + 'loclx.exe')
-    os.system('nssm.exe set lxp AppParameters tunnel config -f ' +
-              str(DEFAULT_PATH) + 'config.yml')
+    print('nssm.exe install lxp ' + str(Path(DEFAULT_PATH.resolve() / 'loclx.exe')))
+    print('nssm.exe set lxp AppParameters tunnel config -f ' +
+              str(Path(DEFAULT_PATH.resolve() / 'config.yml')))
     os.system('nssm.exe set lxp DisplayName Localxpose tunnel service')
     os.system('nssm.exe set lxp Description  Localxpose tunnel service')
     os.system('nssm.exe set lxp Start SERVICE_AUTO_START')
