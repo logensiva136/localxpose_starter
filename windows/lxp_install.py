@@ -4,6 +4,7 @@ import os
 import zipfile
 from pathlib import Path
 from urllib import request
+from requests import get
 
 BASE_DIR = Path(__file__).resolve().parent
 DOWNLOAD_URL = "https://loclx-client.s3.amazonaws.com/loclx-windows-amd64.zip"
@@ -20,7 +21,9 @@ def prepare_dir():
 
 
 def download_exe():
-    request.urlretrieve(DOWNLOAD_URL, DEFAULT_PATH / 'localexpose.zip')
+    # get(DOWNLOAD_URL, DEFAULT_PATH / 'localexpose.zip')
+    r = get(DOWNLOAD_URL, allow_redirects=True)
+    open(DEFAULT_PATH / 'localexpose.zip', 'wb').write(r.content)
 
 
 def prepare_exe(force: bool | None = False):
@@ -70,7 +73,7 @@ def main():
         force = args.force
 
         prepare_dir()
-        prepare_exe(force)
+        prepare_exe(bool(force))
         edit_config(name, token)
         install_service()
     else:
